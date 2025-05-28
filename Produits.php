@@ -24,16 +24,18 @@ $result = $conn->query("SELECT * FROM produit");
         body {
             font-family: Arial, sans-serif;
             background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
+            
+            
         }
 
         .navbar {
-            background-color: #96ddef;
+            background-color:rgb(150, 221, 239);
             padding: 15px 30px;
             display: flex;
+            /*align-items: center;*/
             justify-content: space-between;
             color: white;
+            
         }
 
         .navbar a {
@@ -53,6 +55,9 @@ $result = $conn->query("SELECT * FROM produit");
 
         .container {
             padding: 40px;
+            padding-left:33px;
+            
+            
         }
 
         h2 {
@@ -87,7 +92,7 @@ $result = $conn->query("SELECT * FROM produit");
 <header class="navbar">
     <h1><a href="#">Bienvenue</a></h1>
     <ul class="nav-links">
-        <li><a href="acceuil.php">Accueil</a></li>
+        <li><a href="Produits.php">Produits</a></li>
         <li><a href="Ajouter_un_produit.php">Ajouter un produit</a></li>
         <li><a href="#">Déconnexion</a></li>
     </ul>
@@ -100,9 +105,9 @@ $result = $conn->query("SELECT * FROM produit");
         <thead>
             <tr>
                 <th>Nom</th>
-                <th>Prix (€)</th>
+                <th>Prix MRU</th>
                 <th>Stock</th>
-                <th>Image</th>
+                
                 <th>Actions</th>
             </tr>
         </thead>
@@ -110,20 +115,13 @@ $result = $conn->query("SELECT * FROM produit");
             <?php while ($row = $result->fetch_assoc()): ?>
                 <tr>
                     <td><?= htmlspecialchars($row['nom']) ?></td>
-                    <td><?= number_format($row['prix'], 2, ',', ' ') ?> €</td>
+                    <td><?= number_format($row['prix'], 2, ',', ' ') ?> MRU</td>
                     <td><?= (int)$row['stock'] ?></td>
                     
+                    
                     <td>
-                        <?php if (!empty($row['image'])): ?>
-                            <img src="<?= htmlspecialchars($row['image']) ?>" alt="Image produit">
-                        <?php else: ?>
-                            Pas d'image
-                        <?php endif; ?>
-
-                    </td>
-                    <td>
-                    <a href="modifier_produit.php?id=<?= $row['id'] ?>">✏️ Modifier</a> |
-                    <a href="supprimer_produit.php?id=<?= $row['id'] ?>" onclick="return confirm('Voulez-vous vraiment supprimer ce produit ?')">🗑️ Supprimer</a>
+                    <a href="modifierProduit.php?id=<?= $row['id'] ?>">✏️ Modifier</a> |
+                    <a href="supprimerProduit.php?id=<?= $row['id'] ?>" >🗑️ Supprimer</a>
                     </td>
 
                 </tr>

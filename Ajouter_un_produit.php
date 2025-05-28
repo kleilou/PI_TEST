@@ -96,7 +96,7 @@
         <nav class="navbar">
             <h1><a href="#">Bienvenue</a></h1>
             <ul class="nav-links">
-                <li><a href="acceuil.php">Accueil</a></li>
+                <li><a href="Produits.php">Produits</a></li>
                 <li><a href="Ajouter_un_produit.php">Ajouter un produit</a></li>
                 <li><a href="#">Déconnexion</a></li>
             </ul>
@@ -106,7 +106,7 @@
     <br><br><br>
 
 
-    
+    <center>
     <div class="container">
         <h2>Ajouter un nouveau produit</h2>
         <form action=" Ajouter_un_produit.php" method="POST" enctype="multipart/form-data">
@@ -126,15 +126,13 @@
                 <input type="number" name="stock" id="stock" required>
             </div>
 
-            <div class="form-group">
-                <label for="image">Image du produit</label>
-                <input type="file" name="image" id="image" accept="image/*" >
-            </div>
+            
 
             <button type="submit" name="ajouter">Ajouter le produit</button>
 
         </form>
     </div>
+    </center>
 </body>
 </html>
 
